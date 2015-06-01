@@ -35,10 +35,12 @@ data = profiles.map do |account|
 end
 
 output = {
+  "variable" => {
   "digit_base_ami_id" => {
     "description" => "The DIGIT base ami",
     "default" => base_amis
   }
+}
 }
 
 File.open('variables.tf.json.new', 'w') { |f| f.puts JSON.pretty_generate(output) }
