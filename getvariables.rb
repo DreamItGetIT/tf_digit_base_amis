@@ -42,3 +42,4 @@ output = {
 }
 
 File.open('variables.tf.json.new', 'w') { |f| f.puts JSON.pretty_generate(output) }
+File.rename 'variables.tf.json.new', 'variables.tf.json'
