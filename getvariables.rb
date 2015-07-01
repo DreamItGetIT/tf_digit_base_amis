@@ -6,7 +6,6 @@ File.open(File.expand_path('~/.aws/credentials'), 'r') do |f|
   f.each_line do |l|
     next unless l.gsub!(/^\[\s*(\w+)\s*\].*/, '\1')
     l.chomp!
-    next if l == 'default'
     profiles.push(l)
   end
 end
