@@ -25,9 +25,9 @@ data = profiles.map do |account|
       print "Failed to run aws ec2 describe-images --profile #{account} --region us-east-1"
       exit 1
     end
-    images = JSON.parse(images_json)['Images'].sort_by { |hash| hash['ImageId'].to_i }
+    images = JSON.parse(images_json)['Images'].sort_by { |hash| hash['CreationId'].to_i }
     unless images.empty?
-      latest_image = images.last
+      latest_image = images.first
       base_amis.merge!(Hash["#{region}" => latest_image["ImageId"]])
     end
   end
